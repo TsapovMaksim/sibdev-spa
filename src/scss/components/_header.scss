@@ -1,0 +1,15 @@
+.header {
+  height: auto;
+  line-height: normal;
+  background-color: #fff;
+
+  .logo {
+    margin-right: 20px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+}

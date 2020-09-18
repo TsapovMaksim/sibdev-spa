@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import './App.scss';
+import { PrivateRoute } from './components';
+import { Auth, Favorites, Home } from './pages';
+import { fetchUser } from './redux/actions/auth';
+
+const auth = localStorage.getItem('token');
 
 function App() {
+  const dispatch = useDispatch();
+  if (!!auth) {
+    dispatch(fetchUser(+auth));
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <PrivateRoute exact auth={!!auth} path="/" component={() => <Home />} />
+        <PrivateRoute exact auth={!!auth} path="/favorites" component={() => <Favorites />} />
+        <Route exact path="/auth" component={() => <Auth />} />
+        <Route exact path="*" component={() => <div>404 NOT FOUND</div>} />
+      </Switch>
     </div>
   );
 }

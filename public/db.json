@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "geg",
+      "password": "1"
+    },
+    {
+      "id": "2",
+      "name": "ege",
+      "password": "ege"
+    }
+  ],
+  "favorites": [
+    {
+      "userId": "2",
+      "totalCount": 4,
+      "sortBy": "viewCount",
+      "requestName": "kekeee",
+      "requestValue": "kekeeeek",
+      "id": 1
+    },
+    {
+      "userId": "2",
+      "totalCount": 24,
+      "sortBy": "relevence",
+      "requestName": "lol",
+      "requestValue": "lol",
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "totalCount": 1,
+      "sortBy": "relevence",
+      "requestName": "geg",
+      "requestValue": "geg",
+      "id": 3
+    }
+  ]
+}
